@@ -20,6 +20,7 @@
         vm.sortparam = 'name';
         vm.userName = $stateParams.userName || '';
 
+        /**Function for choosing repository*/
         function chooseRepo(obj) {
             var params = {
                 userName: obj.owner.login,
@@ -32,6 +33,7 @@
             $state.go('reports', params);
         }
 
+        /**Function for getting repositories by user name*/
         function getRepos() {
             http.getRepoByUserName(vm.searchField, $stateParams.token)
                 .then(function (res) {
@@ -45,6 +47,7 @@
                 })
         }
 
+        /**Function for log out*/
         function logOut() {
             http.deleteAuthorization($stateParams.basic, $stateParams.id)
                 .then(function (res) {
@@ -53,6 +56,7 @@
                 })
         }
 
+        /** Function shows alert messages */
         function showMessage(message) {
             vm.message = message;
             $timeout(function () {

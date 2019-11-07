@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=PT+Sans");
 .login {
   max-height: 100%;
   max-width: 100%;
   position: relative; }
   .login md-card {
-    width: 500px;
+    width: 700px;
     margin: 0 auto; }
   .login label {
     font-weight: 700;
@@ -26,7 +25,7 @@
       margin: auto;
       width: 162px;
       height: 158px;
-      background: url("../../assets/images/git-logo-new.png"); }
+      background: url("../assets/images/git-logo-new.png"); }
     .login .form-block .form-head {
       margin: 20px auto;
       font-weight: 700;

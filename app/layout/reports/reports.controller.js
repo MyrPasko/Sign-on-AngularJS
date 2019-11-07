@@ -10,11 +10,11 @@
     function ReportsController($state, issues, commits, $stateParams, http) {
 
         var vm = this;
-        /*The logic for receiving data for the reports is in the file
+        /**The logic for receiving data for the reports is in the file
          * app/core/app.ui.router.js in "resolve" block of "reports" state
          * */
 
-        /*Visibility control block for checkboxes of report options*/
+        /** Visibility control block for checkboxes of report options*/
         vm.checkBox = {
             commits: {
                 committer: true,
@@ -37,7 +37,7 @@
         vm.makeInvisible = makeInvisible;
         vm.repoName = $stateParams.repoName;
 
-        /*Function for transition to repositories page*/
+        /**Function for transition to repositories page*/
         function goToRepos() {
             var params = {
                 userName: $stateParams.userName,
@@ -49,7 +49,7 @@
             $state.go('repositories', params);
         }
 
-        /*Function for log out*/
+        /**Function for log out*/
         function logOut() {
             http.deleteAuthorization($stateParams.basic, $stateParams.id)
                 .then(function (res) {
@@ -58,7 +58,7 @@
                 })
         }
 
-        /*Function for toggling visibility of report parts*/
+        /**Function for toggling visibility of report parts*/
         function makeInvisible(value) {
             return value ? 'visible' : 'invisible';
         }

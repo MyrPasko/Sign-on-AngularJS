@@ -10,13 +10,13 @@
             $stateProvider
                 .state("login", {
                     url: "/login",
-                    templateUrl: "app/layout/login/login.html",
+                    templateUrl: "layout/login/login.html",
                     controller: "LoginController",
                     controllerAs: "vm"
                 })
                 .state("repositories", {
                     url: "/repositories",
-                    templateUrl: "app/layout/repositories/repositories.html",
+                    templateUrl: "layout/repositories/repositories.html",
                     controller: "RepositoriesController",
                     controllerAs: "vm",
                     params: {
@@ -26,9 +26,9 @@
                         token: null
                     },
                     resolve: {
-                        /* Receiving data by user name after returning from
-                        * "reports" state.
-                        * */
+                        /** Receiving data by user name after returning from
+                         * "reports" state.
+                         * */
                         userRepos: ['$stateParams', 'http', function ($stateParams, http) {
                             if ($stateParams.userName) {
                                 return http.getRepoByUserName($stateParams.userName, $stateParams.token);
@@ -41,7 +41,7 @@
                 })
                 .state("reports", {
                     url: "/reports",
-                    templateUrl: "app/layout/reports/reports.html",
+                    templateUrl: "layout/reports/reports.html",
                     controller: "ReportsController",
                     controllerAs: "vm",
                     params: {
@@ -52,9 +52,9 @@
                         token: null
                     },
                     resolve: {
-                        /* Receiving data for repository had chosen in
-                        * "repositories" state
-                        * */
+                        /** Receiving data for repository had chosen in
+                         * "repositories" state
+                         * * */
                         issues: ['$stateParams', 'http', function ($stateParams, http) {
                             return http.getIssuesByRepoName($stateParams.userName, $stateParams.repoName, $stateParams.token);
                         }],

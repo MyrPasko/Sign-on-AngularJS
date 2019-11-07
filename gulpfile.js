@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
 var deploy = require('gulp-gh-pages');
 
 
@@ -18,3 +19,4 @@ gulp.task('deploy', function () {
     gulp.src("./dist/**/*.*")
         .pipe(deploy());
 });
+

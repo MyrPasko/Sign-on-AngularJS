@@ -31,7 +31,7 @@
 
         /* Submit function for user authorization and receiving token */
         function login() {
-            /* There are 4 steps to take OAuth token:
+            /** There are 4 steps to take OAuth token:
              * 1. Encoding the form data to create basic credentials for
              * authorization requests.
              * 2. Taking list of authorizations (we can not take token from there,
@@ -46,7 +46,7 @@
              * authorization.
              * */
 
-            /* Step 1. Encoding form data to base64. */
+            /** Step 1. Encoding form data to base64. */
             var encodedCredentials = $base64.encode(vm.user.login + ':' + vm.user.password);
             var basic = 'basic ' + encodedCredentials;
 
@@ -55,10 +55,10 @@
                 return;
             }
 
-            /* Step 2. Taking list of authorizations */
+            /** Step 2. Taking list of authorizations */
             http.getAuthorization(basic)
                 .then(function (res) {
-                    /* Step 3. Looping through authorizations list */
+                    /** Step 3. Looping through authorizations list */
                     var id = vm.checkArray(res.data, vm.note);
                     console.log(id);
                     console.log(res.data);
@@ -67,20 +67,20 @@
                     console.error(error);
                     vm.showMessage('Wrong login or password.')
                 })
-                /* Step 3. Deleting authorization (if authorization is already
+                /** Step 3. Deleting authorization (if authorization is already
                  *  exists) */
                 .then(function (id) {
                     return http.deleteAuthorization(basic, id)
                 })
-                /* Step 4. Creating new authorization and taking token */
+                /** Step 4. Creating new authorization and taking token */
                 .then(function () {
                     return http.postAuthorization(basic, vm.note)
                 })
                 .then(function (res) {
                     console.log(res);
                     console.log('Go to repositories.');
-                    /* All data move between states programmaticaly
-                     * without saving it in local storage */
+                    /** All data move between states programmaticaly
+                     *  without saving it in local storage */
                     $state.go('repositories', {
                         "basic": basic,
                         "id": res.data.id,
@@ -92,7 +92,7 @@
                 })
         }
 
-        /* Function shows alert messages */
+        /** Function shows alert messages */
         function showMessage(message) {
             vm.message = message;
             $timeout(function () {
