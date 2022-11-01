@@ -15,7 +15,7 @@
     "@uirouter/angularjs": "^1.0.18",
     "angular-messages": "^1.7.2",
     "browser-sync": "^2.24.5",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-sass": "^4.0.1"
